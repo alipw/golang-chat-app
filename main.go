@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/gorilla/websocket"
@@ -67,5 +68,6 @@ func main() {
 	fmt.Println("hello world!")
 
 	setupRoutes()
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	// change this
+	log.Fatal(http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), nil))
 }
