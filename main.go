@@ -66,8 +66,10 @@ func setupRoutes() {
 
 func main() {
 	fmt.Println("hello world!")
+	var PORT = os.Getenv("PORT")
 
 	setupRoutes()
 	// change this
-	log.Fatal(http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), nil))
+	fmt.Printf("server is running at port: %s\n", PORT)
+	log.Fatal(http.ListenAndServe("0.0.0.0:"+PORT, nil))
 }
